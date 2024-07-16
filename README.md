@@ -5,16 +5,23 @@ a
 
 <br />
 <br />
-<p align="center">
 <img src=""/>
 
 a
 
 <h2>Skills Used</h2>
 
+- <b></b> 
+- <b></b>
+
 <h2>Environments Used</h2>
 
+- <b></b>
+
 <h2>Contents</h2>
+[](#)<br />
+[](#)<br />
+[Conclusion](#conclusion)
 
 <h2>Walkthrough</h2>
 
@@ -24,7 +31,7 @@ a
 <br />
 <img src=""/>
 
-[Back to top](#small-office-network-part-2---configuration)
+[Back to top](#)
   
 <h3></h3>
 a
@@ -32,4 +39,4 @@ a
 <br />
 <img src=""/>
 
-[Back to top](#small-office-network-part-2---configuration)
+[Back to top](#)
