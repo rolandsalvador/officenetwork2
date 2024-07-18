@@ -1,22 +1,25 @@
 <h1>Small Office Network (Part 2) - Configuration</h1>
 
 <h2>Description</h2>
-a
-
+This repository is the second part of two in my small office network project. Part one is creating the network from scratch, and part two is configuring the network to use the many protocols and services required in an office.
 <br />
 <br />
 <img src=""/>
-
-a
+The network is a two-tier, or collapsed core, design with a PC, laptop, phone, server, wireless LAN controller, and lightweight access point. The full topology can be seen below.
 
 <h2>Skills Used</h2>
 
-- <b></b> 
-- <b></b>
+- <b>Network Administration</b>
+- <b>Network Protocols</b>
+- <b>OSI Model</b>
+- <b>Subnets</b>
+- <b>VLANs</b>
+- <b>Firewalls/ACLs</b>
+- <b>IP Addressing</b>
 
 <h2>Environments Used</h2>
 
-- <b></b>
+- <b>Cisco Packet Tracer</b>
 
 <h2>Contents</h2>
 
