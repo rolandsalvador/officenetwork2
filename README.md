@@ -42,7 +42,7 @@ The network is a two-tier, or collapsed core, design with a PC, laptop, phone, s
 [17. File Transfer Protocol (FTP)](#17-file-transfer-protocol-ftp)<br />
 [18. Secure Shell (SSH)](#18-secure-shell-ssh)<br />
 [19. Network Address Translation (NAT)](#19-network-address-translation-nat)<br />
-[20. Cisco Discovery Protocol (CDP)](#20-cisco-discovery-protocol-cdp)<br />
+[20. Link Layer Discovery Protocol (LLDP)](#20-link-layer-discovery-protocol-lldp)<br />
 [21. Access Control Lists (ACLs)](#21-access-control-lists-acls)<br />
 [22. Port Security](#22-port-security)<br />
 [23. DHCP Snooping](#23-dhcp-snooping)<br />
@@ -251,7 +251,16 @@ a
 a
 <br />
 <br />
-<img src=""/>
+<img src="https://i.imgur.com/Zq9PFFH.png"/>
+<br />
+<br />
+<img src="https://i.imgur.com/J6PCYM6.png"/>
+<br />
+<br />
+<img src="https://i.imgur.com/LT2MAMX.png"/>
+<br />
+<br />
+<img src="https://i.imgur.com/Ggfcat4.png"/>
 
 [Back to top](#small-office-network-part-2---configuration)
 
@@ -259,7 +268,16 @@ a
 a
 <br />
 <br />
-<img src=""/>
+<img src="https://i.imgur.com/DzqLBSN.png"/>
+<br />
+<br />
+<img src="https://i.imgur.com/VqOlMPh.png"/>
+<br />
+<br />
+<img src="https://i.imgur.com/UrQblUh.png"/>
+<br />
+<br />
+<img src="https://i.imgur.com/W1kEONS.png"/>
 
 [Back to top](#small-office-network-part-2---configuration)
   
@@ -267,7 +285,10 @@ a
 a
 <br />
 <br />
-<img src=""/>
+<img src="https://i.imgur.com/kKCOUk6.png"/>
+<br />
+<br />
+<img src="https://i.imgur.com/Iw0vEMA.png"/>
 
 [Back to top](#small-office-network-part-2---configuration)
 
@@ -275,7 +296,7 @@ a
 a
 <br />
 <br />
-<img src=""/>
+<img src="https://i.imgur.com/Ns78nIb.png"/>
 
 [Back to top](#small-office-network-part-2---configuration)
   
@@ -283,7 +304,7 @@ a
 a
 <br />
 <br />
-<img src=""/>
+<img src="https://i.imgur.com/7vbpRB3.png"/>
 
 [Back to top](#small-office-network-part-2---configuration)
 
@@ -311,7 +332,7 @@ a
 
 [Back to top](#small-office-network-part-2---configuration)
   
-<h3>20. Cisco Discovery Protocol (CDP)</h3>
+<h3>20. Link Layer Discovery Protocol (LLDP)</h3>
 a
 <br />
 <br />
