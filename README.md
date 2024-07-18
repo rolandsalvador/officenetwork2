@@ -55,7 +55,7 @@ a
 a
 <br />
 <br />
-<img src=""/>
+<img src="https://i.imgur.com/Ge5T4b9.png"/>
 
 [Back to top](#small-office-network-part-2---configuration)
   
@@ -63,7 +63,10 @@ a
 a
 <br />
 <br />
-<img src=""/>
+<img src="https://i.imgur.com/2Wo4GgE.png"/>
+<br />
+<br />
+<img src="https://i.imgur.com/SdEwSmQ.png"/>
 
 [Back to top](#small-office-network-part-2---configuration)
 
@@ -71,7 +74,16 @@ a
 a
 <br />
 <br />
-<img src=""/>
+<img src="https://i.imgur.com/yImRKoN.png"/>
+<br />
+<br />
+<img src="https://i.imgur.com/e2t6XFq.png"/>
+<br />
+<br />
+<img src="https://i.imgur.com/CtOYsPj.png"/>
+<br />
+<br />
+<img src="https://i.imgur.com/WcRcWtV.png"/>
 
 [Back to top](#small-office-network-part-2---configuration)
   
@@ -79,7 +91,13 @@ a
 a
 <br />
 <br />
-<img src=""/>
+<img src="https://i.imgur.com/BJkJKgk.png"/>
+<br />
+<br />
+<img src="https://i.imgur.com/IydGQCL.png"/>
+<br />
+<br />
+<img src="https://i.imgur.com/X0Xv5Uo.png"/>
 
 [Back to top](#small-office-network-part-2---configuration)
 
@@ -87,7 +105,10 @@ a
 a
 <br />
 <br />
-<img src=""/>
+<img src="https://i.imgur.com/obKl1r7.png"/>
+<br />
+<br />
+<img src="https://i.imgur.com/R01U7Z7.png"/>
 
 [Back to top](#small-office-network-part-2---configuration)
   
@@ -95,7 +116,16 @@ a
 a
 <br />
 <br />
-<img src=""/>
+<img src="https://i.imgur.com/Rvud2tf.png"/>
+<br />
+<br />
+<img src="https://i.imgur.com/yQsf8Gp.png"/>
+<br />
+<br />
+<img src="https://i.imgur.com/V9FMFQX.png"/>
+<br />
+<br />
+<img src="https://i.imgur.com/riob2RF.png"/>
 
 [Back to top](#small-office-network-part-2---configuration)
 
@@ -103,12 +133,45 @@ a
 a
 <br />
 <br />
-<img src=""/>
+<img src="https://i.imgur.com/IFBYVDy.png"/>
+<br />
+<br />
+<img src="https://i.imgur.com/4FjGyUH.png"/>
+<br />
+<br />
+<img src="https://i.imgur.com/lO70pwO.png"/>
 
 [Back to top](#small-office-network-part-2---configuration)
   
 <h3>8. IPv4</h3>
 a
+<br />
+<br />
+<img src=""/>
+<br />
+<br />
+<img src=""/>
+<br />
+<br />
+<img src=""/>
+<br />
+<br />
+<img src=""/>
+<br />
+<br />
+<img src=""/>
+<br />
+<br />
+<img src=""/>
+<br />
+<br />
+<img src=""/>
+<br />
+<br />
+<img src=""/>
+<br />
+<br />
+<img src=""/>
 <br />
 <br />
 <img src=""/>
@@ -120,6 +183,21 @@ a
 <br />
 <br />
 <img src=""/>
+<br />
+<br />
+<img src=""/>
+<br />
+<br />
+<img src=""/>
+<br />
+<br />
+<img src=""/>
+<br />
+<br />
+<img src=""/>
+<br />
+<br />
+<img src=""/>
 
 [Back to top](#small-office-network-part-2---configuration)
   
@@ -128,11 +206,38 @@ a
 <br />
 <br />
 <img src=""/>
+<br />
+<br />
+<img src=""/>
+<br />
+<br />
+<img src=""/>
+<br />
+<br />
+<img src=""/>
+<br />
+<br />
+<img src=""/>
 
 [Back to top](#small-office-network-part-2---configuration)
 
 <h3>11. Open Shortest Path First (OSPF) and IPv4 Routes</h3>
 a
+<br />
+<br />
+<img src=""/>
+<br />
+<br />
+<img src=""/>
+<br />
+<br />
+<img src=""/>
+<br />
+<br />
+<img src=""/>
+<br />
+<br />
+<img src=""/>
 <br />
 <br />
 <img src=""/>
