@@ -20,33 +20,33 @@ a
 
 <h2>Contents</h2>
 
-[1. Hostnames](#)<br />
-[2. EtherChannel](#)<br />
-[3. Trunk ports and Dynamic Trunking Protocol (DTP)](#)<br />
-[4. VLAN Trunking Protocol (VTP)](#)<br />
-[5. Virtual Local Area Networks (VLANs)](#)<br />
-[6. Access ports](#)<br />
-[7. Disabling unused ports](#)<br />
-[8. IPv4](#)<br />
-[9. Hot Standby Router Protocol (HSRP)](#)<br />
-[10. Spanning Tree Protocol (STP)](#)<br />
-[11. Open Shortest Path First (OSPF) and IPv4 Routes](#)<br />
-[12. Dynamic Host Configuration Protocol (DHCP)](#)<br />
-[13. Domain Name System (DNS)](#)<br />
-[14. Network Time Protocol (NTP)](#)<br />
-[15. Simple Network Management Protocol (SNMP)](#)<br />
-[16. Syslog](#)<br />
-[17. File Transfer Protocol (FTP)](#)<br />
-[18. Secure Shell (SSH)](#)<br />
-[19. Network Address Translation (NAT)](#)<br />
-[20. Cisco Discovery Protocol (CDP)](#)<br />
-[21. Access Control Lists (ACLs)](#)<br />
-[22. Port Security](#)<br />
-[23. DHCP Snooping](#)<br />
-[24. Dynamic ARP Inspection (DAI)](#)<br />
-[25. IPv6](#)<br />
-[26. Wireless Networking](#)<br />
-[27. Security](#)<br />
+[1. Hostnames](#1-hostnames)<br />
+[2. EtherChannel](#2-etherchannel)<br />
+[3. Trunk ports and Dynamic Trunking Protocol (DTP)](#3-trunk-ports-and-dynamic-trunking-protocol-dtp)<br />
+[4. VLAN Trunking Protocol (VTP)](#4-vlan-trunking-protocol-vtp)<br />
+[5. Virtual Local Area Networks (VLANs)](#5-virtual-local-area-networks-vlans)<br />
+[6. Access ports](#6-access-ports)<br />
+[7. Disabling unused ports](#7-disabling-unused-ports)<br />
+[8. IPv4](#8-ipv4)<br />
+[9. Hot Standby Router Protocol (HSRP)](#9-hot-standby-router-protocol-hsrp)<br />
+[10. Spanning Tree Protocol (STP)](#10-spanning-tree-protocol-stp)<br />
+[11. Open Shortest Path First (OSPF) and IPv4 Routes](#11-open-shortest-path-first-ospf-and-ipv4-routes)<br />
+[12. Dynamic Host Configuration Protocol (DHCP)](#12-dynamic-host-configuration-protocol-dhcp)<br />
+[13. Domain Name System (DNS)](#13-domain-name-system-dns)<br />
+[14. Network Time Protocol (NTP)](#14-network-time-protocol-ntp)<br />
+[15. Simple Network Management Protocol (SNMP)](#15-simple-network-management-protocol-snmp)<br />
+[16. Syslog](#16-syslog)<br />
+[17. File Transfer Protocol (FTP)](#17-file-transfer-protocol-ftp)<br />
+[18. Secure Shell (SSH)](#18-secure-shell-ssh)<br />
+[19. Network Address Translation (NAT)](#19-network-address-translation-nat)<br />
+[20. Cisco Discovery Protocol (CDP)](#20-cisco-discovery-protocol-cdp)<br />
+[21. Access Control Lists (ACLs)](#21-access-control-lists-acls)<br />
+[22. Port Security](#22-port-security)<br />
+[23. DHCP Snooping](#23-dhcp-snooping)<br />
+[24. Dynamic ARP Inspection (DAI)](#24-dynamic-arp-inspection-dai)<br />
+[25. IPv6](#25-ipv6)<br />
+[26. Wireless Networking](#26-wireless-networking)<br />
+[27. Security](#27-security)<br />
 [Conclusion](#conclusion)
 
 <h2>Walkthrough</h2>
