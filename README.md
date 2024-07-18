@@ -147,34 +147,34 @@ a
 a
 <br />
 <br />
-<img src=""/>
+<img src="https://i.imgur.com/v8DJwPz.png"/>
 <br />
 <br />
-<img src=""/>
+<img src="https://i.imgur.com/XmgU4SC.png"/>
 <br />
 <br />
-<img src=""/>
+<img src="https://i.imgur.com/Srvo2nb.png"/>
 <br />
 <br />
-<img src=""/>
+<img src="https://i.imgur.com/qUwopgW.png"/>
 <br />
 <br />
-<img src=""/>
+<img src="https://i.imgur.com/dc0tK37.png"/>
 <br />
 <br />
-<img src=""/>
+<img src="https://i.imgur.com/vFStxXZ.png"/>
 <br />
 <br />
-<img src=""/>
+<img src="https://i.imgur.com/TfH1gmC.png"/>
 <br />
 <br />
-<img src=""/>
+<img src="https://i.imgur.com/52N2PaC.png"/>
 <br />
 <br />
-<img src=""/>
+<img src="https://i.imgur.com/IH1zzuH.png"/>
 <br />
 <br />
-<img src=""/>
+<img src="https://i.imgur.com/FndErd5.png"/>
 
 [Back to top](#small-office-network-part-2---configuration)
 
@@ -182,22 +182,22 @@ a
 a
 <br />
 <br />
-<img src=""/>
+<img src="https://i.imgur.com/eidYwk1.png"/>
 <br />
 <br />
-<img src=""/>
+<img src="https://i.imgur.com/QS2zRJP.png"/>
 <br />
 <br />
-<img src=""/>
+<img src="https://i.imgur.com/ueWKZ0l.png"/>
 <br />
 <br />
-<img src=""/>
+<img src="https://i.imgur.com/4VMVuMM.png"/>
 <br />
 <br />
-<img src=""/>
+<img src="https://i.imgur.com/vhen528.png"/>
 <br />
 <br />
-<img src=""/>
+<img src="https://i.imgur.com/KyBFOMi.png"/>
 
 [Back to top](#small-office-network-part-2---configuration)
   
@@ -205,19 +205,19 @@ a
 a
 <br />
 <br />
-<img src=""/>
+<img src="https://i.imgur.com/iai2Vtt.png"/>
 <br />
 <br />
-<img src=""/>
+<img src="https://i.imgur.com/EVCN5q0.png"/>
 <br />
 <br />
-<img src=""/>
+<img src="https://i.imgur.com/DEqAU2P.png"/>
 <br />
 <br />
-<img src=""/>
+<img src="https://i.imgur.com/zTvLOE2.png"/>
 <br />
 <br />
-<img src=""/>
+<img src="https://i.imgur.com/1MifSRr.png"/>
 
 [Back to top](#small-office-network-part-2---configuration)
 
@@ -225,22 +225,22 @@ a
 a
 <br />
 <br />
-<img src=""/>
+<img src="https://i.imgur.com/rneKnVA.png"/>
 <br />
 <br />
-<img src=""/>
+<img src="https://i.imgur.com/S188MVW.png"/>
 <br />
 <br />
-<img src=""/>
+<img src="https://i.imgur.com/yE3Kd5f.png"/>
 <br />
 <br />
-<img src=""/>
+<img src="https://i.imgur.com/YUG6NIL.png"/>
 <br />
 <br />
-<img src=""/>
+<img src="https://i.imgur.com/x3XGUzc.png"/>
 <br />
 <br />
-<img src=""/>
+<img src="https://i.imgur.com/Nrfkha0.png"/>
 
 [Back to top](#small-office-network-part-2---configuration)
   
