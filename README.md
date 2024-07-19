@@ -43,12 +43,12 @@ The network is a two-tier, or collapsed core, design with a PC, laptop, phone, s
 [18. Secure Shell (SSH) and Access Control Lists (ACLs)](#18-secure-shell-ssh-and-access-control-lists-acls)<br />
 [19. Network Address Translation (NAT)](#19-network-address-translation-nat)<br />
 [20. Link Layer Discovery Protocol (LLDP)](#20-link-layer-discovery-protocol-lldp)<br />
-[21. Port Security](#22-port-security)<br />
-[22. DHCP Snooping](#23-dhcp-snooping)<br />
-[23. Dynamic ARP Inspection (DAI)](#24-dynamic-arp-inspection-dai)<br />
-[24. IPv6](#25-ipv6)<br />
-[25. Wireless Networking](#26-wireless-networking)<br />
-[26. Security](#27-security)<br />
+[21. Port Security](#21-port-security)<br />
+[22. DHCP Snooping](#22-dhcp-snooping)<br />
+[23. Dynamic ARP Inspection (DAI)](#23-dynamic-arp-inspection-dai)<br />
+[24. IPv6](#24-ipv6)<br />
+[25. Wireless Networking](#25-wireless-networking)<br />
+[26. Security](#26-security)<br />
 [Conclusion](#conclusion)
 
 <h2>Walkthrough</h2>
