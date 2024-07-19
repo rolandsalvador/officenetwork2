@@ -58,8 +58,10 @@ The network is a two-tier, or collapsed core, design with a PC, laptop, phone, s
 
 <h2>Walkthrough</h2>
 
+Before we start, I want to clarify that there may be screenshots from only one device’s configurations when I say that it is for multiple. In these cases, it means that the set of commands are the same across multiple devices. I did not screenshot their configurations because it would be redundant.
+
 <h3>1. Hostnames</h3>
-a
+The first thing I did was configure each device’s hostname so that I could differentiate which CLI I’m working with.
 <br />
 <br />
 <img src="https://i.imgur.com/Ge5T4b9.png"/>
@@ -67,10 +69,11 @@ a
 [Back to top](#small-office-network-part-2---configuration)
   
 <h3>2. EtherChannel</h3>
-a
+EtherChannel combines multiple physical links into a single logical link, providing redundancy, load balancing, and increased bandwidth. Interfaces G1/0/1 and G1/0/2 between DSW1 and 2 will be bundled together into Port-channel1.
 <br />
 <br />
 <img src="https://i.imgur.com/2Wo4GgE.png"/>
+Using “do show etherchannel summary” we can see that Po1 has been successfully created.
 <br />
 <br />
 <img src="https://i.imgur.com/SdEwSmQ.png"/>
@@ -78,16 +81,19 @@ a
 [Back to top](#small-office-network-part-2---configuration)
 
 <h3>3. Trunk ports and Dynamic Trunking Protocol (DTP)</h3>
-a
+Trunk ports allow traffic from multiple VLANs to pass through an interface. This is essential for logically separating traffic seamlessly and securely. Using “do show cdp neighbors” we can see the local switch interfaces connected to its neighbors.
 <br />
 <br />
 <img src="https://i.imgur.com/yImRKoN.png"/>
+Interfaces G1/0/4 to G1/0/6 on DSW1 and 2 are connected to ASW1, 2, and 3. I configure the trunk links on these interfaces because the traffic between the endpoints and distribution switches will all flow through here.
 <br />
 <br />
 <img src="https://i.imgur.com/e2t6XFq.png"/>
+I also disabled Dynamic Trunking Protocol (DTP) because I want these ports to stay as trunk links. As a security best practice, I disabled DTP since it’s not in use. Additionally, I changed the native VLAN to an unused VLAN as another security best practice.
 <br />
 <br />
 <img src="https://i.imgur.com/CtOYsPj.png"/>
+I performed the same configurations on ASW1, 2, and 3’s F0/1 and F0/4 interfaces, which are connected to both DSW1 and 2.
 <br />
 <br />
 <img src="https://i.imgur.com/WcRcWtV.png"/>
@@ -95,13 +101,15 @@ a
 [Back to top](#small-office-network-part-2---configuration)
   
 <h3>4. VLAN Trunking Protocol (VTP)</h3>
-a
+VTP lets us propagate and sync VLAN configurations across multiple switches in the same domain. This saves a lot of manual configuration, since the VLAN configurations on the client switches will automatically sync to the server switches configurations.
 <br />
 <br />
 <img src="https://i.imgur.com/BJkJKgk.png"/>
+On the VTP server (DSW1), I changed the domain name to grilledonion and set VTP to version 2.
 <br />
 <br />
 <img src="https://i.imgur.com/IydGQCL.png"/>
+On the VTP clients (ASW1, 2, 3), I set the VTP mode to client, and the configurations on DSW1 were automatically applied. Note that DSW2 is also a server, but it also synced to DSW1’s changes.
 <br />
 <br />
 <img src="https://i.imgur.com/X0Xv5Uo.png"/>
@@ -109,10 +117,11 @@ a
 [Back to top](#small-office-network-part-2---configuration)
 
 <h3>5. Virtual Local Area Networks (VLANs)</h3>
-a
+Now that VTP is set up, I set up the VLANs that I’ll be using for this project. VLAN 10 for PCs, VLAN 20 for phones, VLAN 30 for servers, VLAN 40 for Wi-Fi, and VLAN 99 for management.
 <br />
 <br />
 <img src="https://i.imgur.com/obKl1r7.png"/>
+The same commands were used on the access switches.
 <br />
 <br />
 <img src="https://i.imgur.com/R01U7Z7.png"/>
