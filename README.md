@@ -40,16 +40,15 @@ The network is a two-tier, or collapsed core, design with a PC, laptop, phone, s
 [15. Simple Network Management Protocol (SNMP)](#15-simple-network-management-protocol-snmp)<br />
 [16. Syslog](#16-syslog)<br />
 [17. File Transfer Protocol (FTP)](#17-file-transfer-protocol-ftp)<br />
-[18. Secure Shell (SSH)](#18-secure-shell-ssh)<br />
+[18. Secure Shell (SSH) and Access Control Lists (ACLs)](#18-secure-shell-ssh-and-access-control-lists-acls)<br />
 [19. Network Address Translation (NAT)](#19-network-address-translation-nat)<br />
 [20. Link Layer Discovery Protocol (LLDP)](#20-link-layer-discovery-protocol-lldp)<br />
-[21. Access Control Lists (ACLs)](#21-access-control-lists-acls)<br />
-[22. Port Security](#22-port-security)<br />
-[23. DHCP Snooping](#23-dhcp-snooping)<br />
-[24. Dynamic ARP Inspection (DAI)](#24-dynamic-arp-inspection-dai)<br />
-[25. IPv6](#25-ipv6)<br />
-[26. Wireless Networking](#26-wireless-networking)<br />
-[27. Security](#27-security)<br />
+[21. Port Security](#22-port-security)<br />
+[22. DHCP Snooping](#23-dhcp-snooping)<br />
+[23. Dynamic ARP Inspection (DAI)](#24-dynamic-arp-inspection-dai)<br />
+[24. IPv6](#25-ipv6)<br />
+[25. Wireless Networking](#26-wireless-networking)<br />
+[26. Security](#27-security)<br />
 [Conclusion](#conclusion)
 
 <h2>Walkthrough</h2>
@@ -316,7 +315,7 @@ a
 
 [Back to top](#small-office-network-part-2---configuration)
   
-<h3>18. Secure Shell (SSH)</h3>
+<h3>18. Secure Shell (SSH) and Access Control Lists (ACLs)</h3>
 a
 <br />
 <br />
@@ -339,8 +338,16 @@ a
 <img src=""/>
 
 [Back to top](#small-office-network-part-2---configuration)
+  
+<h3>21. Port Security</h3>
+a
+<br />
+<br />
+<img src=""/>
 
-<h3>21. Access Control Lists (ACLs)</h3>
+[Back to top](#small-office-network-part-2---configuration)
+
+<h3>22. DHCP Snooping</h3>
 a
 <br />
 <br />
@@ -348,7 +355,7 @@ a
 
 [Back to top](#small-office-network-part-2---configuration)
   
-<h3>22. Port Security</h3>
+<h3>23. Dynamic ARP Inspection (DAI)</h3>
 a
 <br />
 <br />
@@ -356,23 +363,7 @@ a
 
 [Back to top](#small-office-network-part-2---configuration)
 
-<h3>23. DHCP Snooping</h3>
-a
-<br />
-<br />
-<img src=""/>
-
-[Back to top](#small-office-network-part-2---configuration)
-  
-<h3>24. Dynamic ARP Inspection (DAI)</h3>
-a
-<br />
-<br />
-<img src=""/>
-
-[Back to top](#small-office-network-part-2---configuration)
-
-<h3>25. IPv6</h3>
+<h3>24. IPv6</h3>
 a
 <br />
 <br />
@@ -380,7 +371,7 @@ a
 
 [Back to top](#small-office-network-part-2---configuration)
   
-<h3>26. Wireless Networking</h3>
+<h3>25. Wireless Networking</h3>
 a
 <br />
 <br />
@@ -388,7 +379,7 @@ a
 
 [Back to top](#small-office-network-part-2---configuration)
 
-<h3>27. Security</h3>
+<h3>26. Security</h3>
 a
 <br />
 <br />
