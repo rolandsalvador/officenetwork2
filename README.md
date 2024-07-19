@@ -1,7 +1,10 @@
 <h1>Small Office Network (Part 2) - Configuration</h1>
 
 <h2>Description</h2>
-This repository is the first part of two in my small office network project. <a href="https://github.com/rolandsalvador/officenetwork">Part one</a> is creating the network from scratch, and part two is configuring the network to use the many protocols and services required in an office. 
+In this project, I created a small office network from scratch in Cisco Packet Tracer. This repository is the first part of two in my small office network project. <a href="https://github.com/rolandsalvador/officenetwork">Part 1</a> is creating the network from scratch, and part 2 is configuring the network to use the many protocols and services required in an office. 
+<br />
+<br />
+I wanted to put my networking knowledge to the test after obtaining my Cisco Certified Network Associate (CCNA) certification. Though the CCNA exam had practical questions that required me to apply what I learned, I wanted to take it one step further by designing a network from the ground up and configure it as if it were a real small office network. Thank you for taking a look, and please make sure to check out <a href="https://github.com/rolandsalvador/officenetwork">part 1</a> if you haven't yet!
 <br />
 <br />
 The network is a two-tier, or collapsed core, design with a PC, laptop, phone, server, wireless LAN controller, and lightweight access point. The full topology can be seen below.
