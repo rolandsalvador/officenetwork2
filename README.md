@@ -129,16 +129,22 @@ The same commands were used on the access switches.
 [Back to top](#small-office-network-part-2---configuration)
   
 <h3>6. Access ports</h3>
-a
+Access ports only allow traffic from one VLAN, and these are for endpoints. For security reasons, we want each endpoint to send traffic in one VLAN only, which is why I have separate VLANs for each endpoint.
+<br />
+<br />
+On ASW1, F0/2 is connected to LWAP1, which is not using FlexConnect. LWAP1 will relay all the traffic from wireless endpoints through management VLAN 99, so I configured F0/2 as an access port on VLAN 99.
 <br />
 <br />
 <img src="https://i.imgur.com/Rvud2tf.png"/>
+On ASW2, I configured F0/2 with similar settings, but with VLAN 10 for PCs and VLAN 20 for phones.
 <br />
 <br />
 <img src="https://i.imgur.com/yQsf8Gp.png"/>
+Again, on ASW3 I used similar settings but with VLAN 30 for the server.
 <br />
 <br />
 <img src="https://i.imgur.com/V9FMFQX.png"/>
+Back on ASW1, I explicitly configured F0/3, the interface connected to WLC1, as a trunk port. WLC1 must support management VLAN 99 and Wi-Fi VLAN 40, so it cannot be an access port.
 <br />
 <br />
 <img src="https://i.imgur.com/riob2RF.png"/>
@@ -146,13 +152,15 @@ a
 [Back to top](#small-office-network-part-2---configuration)
 
 <h3>7. Disabling unused ports</h3>
-a
+As a security best practice, I disabled all unused ports on all switches. “do show interfaces status” displays all the unused ports.
 <br />
 <br />
 <img src="https://i.imgur.com/IFBYVDy.png"/>
+For example, DSW1’s interfaces G1/0/7 through 24 and G1/1/1 through 4 interfaces are unused, so I shut them down.
 <br />
 <br />
 <img src="https://i.imgur.com/4FjGyUH.png"/>
+In addition, I used the “do write” command after every step in this project to ensure that my changes are saved.
 <br />
 <br />
 <img src="https://i.imgur.com/lO70pwO.png"/>
@@ -160,34 +168,43 @@ a
 [Back to top](#small-office-network-part-2---configuration)
   
 <h3>8. IPv4</h3>
-a
+
 <br />
 <br />
 <img src="https://i.imgur.com/v8DJwPz.png"/>
+
 <br />
 <br />
 <img src="https://i.imgur.com/XmgU4SC.png"/>
+
 <br />
 <br />
 <img src="https://i.imgur.com/Srvo2nb.png"/>
+
 <br />
 <br />
 <img src="https://i.imgur.com/qUwopgW.png"/>
+
 <br />
 <br />
 <img src="https://i.imgur.com/dc0tK37.png"/>
+
 <br />
 <br />
 <img src="https://i.imgur.com/vFStxXZ.png"/>
+
 <br />
 <br />
 <img src="https://i.imgur.com/TfH1gmC.png"/>
+
 <br />
 <br />
 <img src="https://i.imgur.com/52N2PaC.png"/>
+
 <br />
 <br />
 <img src="https://i.imgur.com/IH1zzuH.png"/>
+
 <br />
 <br />
 <img src="https://i.imgur.com/FndErd5.png"/>
@@ -195,22 +212,27 @@ a
 [Back to top](#small-office-network-part-2---configuration)
 
 <h3>9. Hot Standby Router Protocol (HSRP)</h3>
-a
+
 <br />
 <br />
 <img src="https://i.imgur.com/eidYwk1.png"/>
+
 <br />
 <br />
 <img src="https://i.imgur.com/QS2zRJP.png"/>
+
 <br />
 <br />
 <img src="https://i.imgur.com/ueWKZ0l.png"/>
+
 <br />
 <br />
 <img src="https://i.imgur.com/4VMVuMM.png"/>
+
 <br />
 <br />
 <img src="https://i.imgur.com/vhen528.png"/>
+
 <br />
 <br />
 <img src="https://i.imgur.com/KyBFOMi.png"/>
@@ -218,19 +240,23 @@ a
 [Back to top](#small-office-network-part-2---configuration)
   
 <h3>10. Spanning Tree Protocol (STP)</h3>
-a
+
 <br />
 <br />
 <img src="https://i.imgur.com/iai2Vtt.png"/>
+
 <br />
 <br />
 <img src="https://i.imgur.com/EVCN5q0.png"/>
+
 <br />
 <br />
 <img src="https://i.imgur.com/DEqAU2P.png"/>
+
 <br />
 <br />
 <img src="https://i.imgur.com/zTvLOE2.png"/>
+
 <br />
 <br />
 <img src="https://i.imgur.com/1MifSRr.png"/>
@@ -238,22 +264,27 @@ a
 [Back to top](#small-office-network-part-2---configuration)
 
 <h3>11. Open Shortest Path First (OSPF) and IPv4 Routes</h3>
-a
+
 <br />
 <br />
 <img src="https://i.imgur.com/rneKnVA.png"/>
+
 <br />
 <br />
 <img src="https://i.imgur.com/S188MVW.png"/>
+
 <br />
 <br />
 <img src="https://i.imgur.com/yE3Kd5f.png"/>
+
 <br />
 <br />
 <img src="https://i.imgur.com/YUG6NIL.png"/>
+
 <br />
 <br />
 <img src="https://i.imgur.com/x3XGUzc.png"/>
+
 <br />
 <br />
 <img src="https://i.imgur.com/Nrfkha0.png"/>
@@ -261,16 +292,19 @@ a
 [Back to top](#small-office-network-part-2---configuration)
   
 <h3>12. Dynamic Host Configuration Protocol (DHCP)</h3>
-a
+
 <br />
 <br />
 <img src="https://i.imgur.com/Zq9PFFH.png"/>
+
 <br />
 <br />
 <img src="https://i.imgur.com/J6PCYM6.png"/>
+
 <br />
 <br />
 <img src="https://i.imgur.com/LT2MAMX.png"/>
+
 <br />
 <br />
 <img src="https://i.imgur.com/Ggfcat4.png"/>
@@ -278,16 +312,19 @@ a
 [Back to top](#small-office-network-part-2---configuration)
 
 <h3>13. Domain Name System (DNS)</h3>
-a
+
 <br />
 <br />
 <img src="https://i.imgur.com/DzqLBSN.png"/>
+
 <br />
 <br />
 <img src="https://i.imgur.com/VqOlMPh.png"/>
+
 <br />
 <br />
 <img src="https://i.imgur.com/UrQblUh.png"/>
+
 <br />
 <br />
 <img src="https://i.imgur.com/W1kEONS.png"/>
@@ -295,10 +332,11 @@ a
 [Back to top](#small-office-network-part-2---configuration)
   
 <h3>14. Network Time Protocol (NTP)</h3>
-a
+
 <br />
 <br />
 <img src="https://i.imgur.com/kKCOUk6.png"/>
+
 <br />
 <br />
 <img src="https://i.imgur.com/Iw0vEMA.png"/>
@@ -306,7 +344,7 @@ a
 [Back to top](#small-office-network-part-2---configuration)
 
 <h3>15. Simple Network Management Protocol (SNMP)</h3>
-a
+
 <br />
 <br />
 <img src="https://i.imgur.com/Ns78nIb.png"/>
@@ -314,7 +352,7 @@ a
 [Back to top](#small-office-network-part-2---configuration)
   
 <h3>16. Syslog</h3>
-a
+
 <br />
 <br />
 <img src="https://i.imgur.com/7vbpRB3.png"/>
@@ -322,22 +360,27 @@ a
 [Back to top](#small-office-network-part-2---configuration)
 
 <h3>17. File Transfer Protocol (FTP)</h3>
-a
+
 <br />
 <br />
 <img src="https://i.imgur.com/5oLcn5e.png"/>
+
 <br />
 <br />
 <img src="https://i.imgur.com/YzXg2xG.png"/>
+
 <br />
 <br />
 <img src="https://i.imgur.com/npZ9Cmq.png"/>
+
 <br />
 <br />
 <img src="https://i.imgur.com/LzJmb1O.png"/>
+
 <br />
 <br />
 <img src="https://i.imgur.com/9rrFMAt.png"/>
+
 <br />
 <br />
 <img src="https://i.imgur.com/auydq8o.png"/>
@@ -345,13 +388,15 @@ a
 [Back to top](#small-office-network-part-2---configuration)
   
 <h3>18. Secure Shell (SSH) and Access Control Lists (ACLs)</h3>
-a
+
 <br />
 <br />
 <img src="https://i.imgur.com/rikZKnS.png"/>
+
 <br />
 <br />
 <img src="https://i.imgur.com/ad9RXST.png"/>
+
 <br />
 <br />
 <img src="https://i.imgur.com/RqW6rqq.png"/>
@@ -359,16 +404,19 @@ a
 [Back to top](#small-office-network-part-2---configuration)
 
 <h3>19. Network Address Translation (NAT)</h3>
-a
+
 <br />
 <br />
 <img src="https://i.imgur.com/ykqhHZF.png"/>
+
 <br />
 <br />
 <img src="https://i.imgur.com/i8lF6dd.png"/>
+
 <br />
 <br />
 <img src="https://i.imgur.com/NX6kbip.png"/>
+
 <br />
 <br />
 <img src="https://i.imgur.com/iXoE7zq.png"/>
@@ -376,10 +424,11 @@ a
 [Back to top](#small-office-network-part-2---configuration)
   
 <h3>20. Link Layer Discovery Protocol (LLDP)</h3>
-a
+
 <br />
 <br />
 <img src="https://i.imgur.com/ZiQUmCL.png"/>
+
 <br />
 <br />
 <img src="https://i.imgur.com/zAVM3p3.png"/>
@@ -387,10 +436,11 @@ a
 [Back to top](#small-office-network-part-2---configuration)
   
 <h3>21. Port Security</h3>
-a
+
 <br />
 <br />
 <img src="https://i.imgur.com/cUPbfRr.png"/>
+
 <br />
 <br />
 <img src="https://i.imgur.com/iKGMBXk.png"/>
@@ -398,7 +448,7 @@ a
 [Back to top](#small-office-network-part-2---configuration)
 
 <h3>22. DHCP Snooping</h3>
-a
+
 <br />
 <br />
 <img src="https://i.imgur.com/WCi5xwI.png"/>
@@ -406,7 +456,7 @@ a
 [Back to top](#small-office-network-part-2---configuration)
   
 <h3>23. Dynamic ARP Inspection (DAI)</h3>
-a
+
 <br />
 <br />
 <img src="https://i.imgur.com/igpzGP3.png"/>
@@ -414,16 +464,19 @@ a
 [Back to top](#small-office-network-part-2---configuration)
 
 <h3>24. IPv6</h3>
-a
+
 <br />
 <br />
 <img src="https://i.imgur.com/cF0m5wO.png"/>
+
 <br />
 <br />
 <img src="https://i.imgur.com/Jxh4ZVn.png"/>
+
 <br />
 <br />
 <img src="https://i.imgur.com/37whEDs.png"/>
+
 <br />
 <br />
 <img src="https://i.imgur.com/MedsWNh.png"/>
@@ -431,19 +484,23 @@ a
 [Back to top](#small-office-network-part-2---configuration)
   
 <h3>25. Wireless Networking</h3>
-a
+
 <br />
 <br />
 <img src="https://i.imgur.com/j8v5LpR.png"/>
+
 <br />
 <br />
 <img src="https://i.imgur.com/1C3tsjo.png"/>
+
 <br />
 <br />
 <img src="https://i.imgur.com/L0ZXkCO.png"/>
+
 <br />
 <br />
 <img src="https://i.imgur.com/n2LoQX6.png"/>
+
 <br />
 <br />
 <img src="https://i.imgur.com/RG5ECxs.png"/>
@@ -451,13 +508,15 @@ a
 [Back to top](#small-office-network-part-2---configuration)
 
 <h3>26. Security</h3>
-a
+
 <br />
 <br />
 <img src="https://i.imgur.com/XG4SYZe.png"/>
+
 <br />
 <br />
 <img src="https://i.imgur.com/jqysUdz.png"/>
+
 <br />
 <br />
 <img src="https://i.imgur.com/U8xqFCv.png"/>
@@ -465,6 +524,6 @@ a
 [Back to top](#small-office-network-part-2---configuration)
   
 <h3>Conclusion</h3>
-a
+
 
 [Back to top](#small-office-network-part-2---configuration)
