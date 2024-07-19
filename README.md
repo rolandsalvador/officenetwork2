@@ -1,7 +1,7 @@
 <h1>Small Office Network (Part 2) - Configuration</h1>
 
 <h2>Description</h2>
-This repository is the second part of two in my small office network project. Part one is creating the network from scratch, and part two is configuring the network to use the many protocols and services required in an office. 
+This repository is the first part of two in my small office network project. <a href="https://github.com/rolandsalvador/officenetwork">Part one</a> is creating the network from scratch, and part two is configuring the network to use the many protocols and services required in an office. 
 <br />
 <br />
 The network is a two-tier, or collapsed core, design with a PC, laptop, phone, server, wireless LAN controller, and lightweight access point. The full topology can be seen below.
