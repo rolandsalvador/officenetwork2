@@ -1,11 +1,13 @@
 <h1>Small Office Network (Part 2) - Configuration</h1>
 
 <h2>Description</h2>
-This repository is the second part of two in my small office network project. Part one is creating the network from scratch, and part two is configuring the network to use the many protocols and services required in an office.
+This repository is the second part of two in my small office network project. Part one is creating the network from scratch, and part two is configuring the network to use the many protocols and services required in an office. 
 <br />
 <br />
-<img src=""/>
 The network is a two-tier, or collapsed core, design with a PC, laptop, phone, server, wireless LAN controller, and lightweight access point. The full topology can be seen below.
+<br />
+<br />
+<img src="https://i.imgur.com/qUnA3Qz.png"/>
 
 <h2>Skills Used</h2>
 
@@ -365,7 +367,10 @@ a
 a
 <br />
 <br />
-<img src=""/>
+<img src="https://i.imgur.com/ZiQUmCL.png"/>
+<br />
+<br />
+<img src="https://i.imgur.com/zAVM3p3.png"/>
 
 [Back to top](#small-office-network-part-2---configuration)
   
@@ -373,7 +378,10 @@ a
 a
 <br />
 <br />
-<img src=""/>
+<img src="https://i.imgur.com/cUPbfRr.png"/>
+<br />
+<br />
+<img src="https://i.imgur.com/iKGMBXk.png"/>
 
 [Back to top](#small-office-network-part-2---configuration)
 
@@ -381,7 +389,7 @@ a
 a
 <br />
 <br />
-<img src=""/>
+<img src="https://i.imgur.com/WCi5xwI.png"/>
 
 [Back to top](#small-office-network-part-2---configuration)
   
@@ -389,7 +397,7 @@ a
 a
 <br />
 <br />
-<img src=""/>
+<img src="https://i.imgur.com/igpzGP3.png"/>
 
 [Back to top](#small-office-network-part-2---configuration)
 
@@ -397,7 +405,16 @@ a
 a
 <br />
 <br />
-<img src=""/>
+<img src="https://i.imgur.com/cF0m5wO.png"/>
+<br />
+<br />
+<img src="https://i.imgur.com/Jxh4ZVn.png"/>
+<br />
+<br />
+<img src="https://i.imgur.com/37whEDs.png"/>
+<br />
+<br />
+<img src="https://i.imgur.com/MedsWNh.png"/>
 
 [Back to top](#small-office-network-part-2---configuration)
   
@@ -405,7 +422,19 @@ a
 a
 <br />
 <br />
-<img src=""/>
+<img src="https://i.imgur.com/j8v5LpR.png"/>
+<br />
+<br />
+<img src="https://i.imgur.com/1C3tsjo.png"/>
+<br />
+<br />
+<img src="https://i.imgur.com/L0ZXkCO.png"/>
+<br />
+<br />
+<img src="https://i.imgur.com/n2LoQX6.png"/>
+<br />
+<br />
+<img src="https://i.imgur.com/RG5ECxs.png"/>
 
 [Back to top](#small-office-network-part-2---configuration)
 
@@ -413,14 +442,17 @@ a
 a
 <br />
 <br />
-<img src=""/>
+<img src="https://i.imgur.com/XG4SYZe.png"/>
+<br />
+<br />
+<img src="https://i.imgur.com/jqysUdz.png"/>
+<br />
+<br />
+<img src="https://i.imgur.com/U8xqFCv.png"/>
 
 [Back to top](#small-office-network-part-2---configuration)
   
 <h3>Conclusion</h3>
 a
-<br />
-<br />
-<img src=""/>
 
 [Back to top](#small-office-network-part-2---configuration)
