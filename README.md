@@ -168,15 +168,15 @@ In addition, I used the “do write” command after every step in this project 
 [Back to top](#small-office-network-part-2---configuration)
   
 <h3>8. IPv4</h3>
-
+The internal network address that I used in this project is the 192.168.0.0/24 network, and the 203.0.113.0/24 network acts as the outside network.
 <br />
 <br />
-<img src="https://i.imgur.com/v8DJwPz.png"/>
-
+<img src="https://i.imgur.com/MaZG5e7.png"/>
+The network addresses for the other devices are listed below.
 <br />
 <br />
-<img src="https://i.imgur.com/XmgU4SC.png"/>
-
+<img src="https://i.imgur.com/IlYKdvC.png"/>
+On R1, interface G0/0 and G0/1 face DSW1 and 2 and are assigned their respective point-to-point addresses. G0/2 faces the Internet and is assigned by the ISP through DHCP. In addition, I added Loopback1 for use in future configurations. 
 <br />
 <br />
 <img src="https://i.imgur.com/Srvo2nb.png"/>
