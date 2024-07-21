@@ -85,7 +85,7 @@ Trunk ports allow traffic from multiple VLANs to pass through an interface. This
 <br />
 <br />
 <img src="https://i.imgur.com/yImRKoN.png"/>
-Interfaces G1/0/4 to G1/0/6 on the DSWs are connected to the ASWs. I configure the trunk links on these interfaces because the traffic between the endpoints and distribution switches will all flow through here.
+Interfaces G1/0/4 to G1/0/6 on the DSWs are connected to the ASWs. I configured these interfaces as trunk ports because the traffic between the endpoints and distribution switches will all flow through here.
 <br />
 <br />
 <img src="https://i.imgur.com/e2t6XFq.png"/>
@@ -129,7 +129,7 @@ The same commands were used on the access switches.
 [Back to top](#small-office-network-part-2---configuration)
   
 <h3>6. Access ports</h3>
-Access ports only allow traffic from one VLAN, and these are for endpoints. For security reasons, we want each endpoint to send traffic in one VLAN only, which is why I have separate VLANs for each endpoint.
+Access ports only allow traffic from one VLAN, and are usually configured for endpoints. For security reasons, we want each endpoint to send traffic in one VLAN only, which is why I have separate VLANs for each endpoint.
 <br />
 <br />
 On ASW1, F0/2 is connected to LWAP1, which is not using FlexConnect. LWAP1 will relay all the traffic from wireless endpoints through management VLAN 99, so I configured F0/2 as an access port on VLAN 99.
