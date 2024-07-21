@@ -316,19 +316,22 @@ OSPF routes are being shared on the DSWs too, and DSW1 can ping 203.0.113.2, R1�
 [Back to top](#small-office-network-part-2---configuration)
   
 <h3>12. Dynamic Host Configuration Protocol (DHCP)</h3>
-
+DHCP makes it possible to dynamically assign, or lease, IP addresses to devices on the network. Below are the DHCP pools that I configured for this project. Every VLAN except the 30, the server VLAN, gets a pool. SRV1’s IP address should stay the same, and I already configured it earlier.
 <br />
 <br />
 <img src="https://i.imgur.com/Zq9PFFH.png"/>
-
+On R1, I started by excluding the first 10 usable addresses in each subnet. Theoretically, I saved these addresses in case the network gets expanded and some devices need IP addresses that stay the same. 
+<br />
+<br />
+Each DHCP subnet address matches the HSRP group subnets addresses. The default gateway of each subnet is the first usable address, the domain name is grilledonion.com, and the DNS server is SRV1’s IP address.
 <br />
 <br />
 <img src="https://i.imgur.com/J6PCYM6.png"/>
-
+On both DSWs, I used the “ip helper-address” command to define R1 as the DHCP server and the DSWs as the DHCP relay agent.
 <br />
 <br />
 <img src="https://i.imgur.com/LT2MAMX.png"/>
-
+On PC1, I used the “ipconfig /renew” command to get a new dynamically assigned IP address. I pinged R1’s loopback address and internet-facing interface, which were successful.
 <br />
 <br />
 <img src="https://i.imgur.com/Ggfcat4.png"/>
@@ -336,19 +339,22 @@ OSPF routes are being shared on the DSWs too, and DSW1 can ping 203.0.113.2, R1�
 [Back to top](#small-office-network-part-2---configuration)
 
 <h3>13. Domain Name System (DNS)</h3>
-
+DNS translates IP addresses into more human-friendly readable names. For example, we can type “google.com” as the target of a ping instead of “8.8.8.8.”
+<br />
+<br />
+On the DNS server, SRV1, I created an A record (for IPv4) that records the above translation. Furthermore, I created a CNAME called “www.google.com” that maps to “google.com.”
 <br />
 <br />
 <img src="https://i.imgur.com/DzqLBSN.png"/>
-
+Back on PC1, I pinged using the target “google.com” and it correctly translates to 8.8.8.8. This also happens when I use “www.google.com” as well. The requests are timing out since I haven’t configured NAT yet.
 <br />
 <br />
 <img src="https://i.imgur.com/VqOlMPh.png"/>
-
+On R1, I set the DNS server to SRV1’s IP address.
 <br />
 <br />
 <img src="https://i.imgur.com/UrQblUh.png"/>
-
+The pings show that DNS work on R1 as well.
 <br />
 <br />
 <img src="https://i.imgur.com/W1kEONS.png"/>
@@ -356,11 +362,14 @@ OSPF routes are being shared on the DSWs too, and DSW1 can ping 203.0.113.2, R1�
 [Back to top](#small-office-network-part-2---configuration)
   
 <h3>14. Network Time Protocol (NTP)</h3>
-
+NTP lets network devices sync their clock together. On R1, I use the “ntp master” command to set it as an NTP server that the rest of the network will sync to. The “ntp server” command is used to sync R1 to another NTP server, which is a <a href="https://tf.nist.gov/tf-cgi/servers.cgi">NIST Internet Time server</a>.
+<br />
+<br />
+An authentication key, “onion,” is created and trusted so that R1 and the DSWs can authenticate with each other for security.
 <br />
 <br />
 <img src="https://i.imgur.com/kKCOUk6.png"/>
-
+On the DSWs, the same authentication key commands are used in addition to setting R1 as their NTP server.
 <br />
 <br />
 <img src="https://i.imgur.com/Iw0vEMA.png"/>
@@ -368,7 +377,10 @@ OSPF routes are being shared on the DSWs too, and DSW1 can ping 203.0.113.2, R1�
 [Back to top](#small-office-network-part-2---configuration)
 
 <h3>15. Simple Network Management Protocol (SNMP)</h3>
-
+SNMP collects information on network devices and lets you modify device behavior.
+<br />
+<br />
+The only configuration needed to start SNMP is the “snmp-server” command with a community string and setting it to read only/read and write. In this case I use the string “SNMPonion” and set it to read only.
 <br />
 <br />
 <img src="https://i.imgur.com/Ns78nIb.png"/>
@@ -376,7 +388,7 @@ OSPF routes are being shared on the DSWs too, and DSW1 can ping 203.0.113.2, R1�
 [Back to top](#small-office-network-part-2---configuration)
   
 <h3>16. Syslog</h3>
-
+Syslog stores information about events, errors, or system performance in the form of logs. I set SRV1 as the logging IP address, enabled notifications of all severity, and set the size of the local buffer (that will contain Syslog messages) to 8192 bytes.
 <br />
 <br />
 <img src="https://i.imgur.com/7vbpRB3.png"/>
@@ -384,27 +396,27 @@ OSPF routes are being shared on the DSWs too, and DSW1 can ping 203.0.113.2, R1�
 [Back to top](#small-office-network-part-2---configuration)
 
 <h3>17. File Transfer Protocol (FTP)</h3>
-
+FTP enables file transfer between devices. SRV1 contains an update file for R1 that I’ll transfer over with FTP.
 <br />
 <br />
 <img src="https://i.imgur.com/5oLcn5e.png"/>
-
+On R1, I set the FTP username and password configured on SRV1. The “do copy ftp flash” command lets you specify the filename to transfer.
 <br />
 <br />
 <img src="https://i.imgur.com/YzXg2xG.png"/>
-
+After a while, the file finished transferring.
 <br />
 <br />
 <img src="https://i.imgur.com/npZ9Cmq.png"/>
-
+The new file, ending in “115-3.M4a.bin,” can be seen on R1’s flash now. I also had to delete the old file, ending in “151-4.M4.bin,” for the update to work.
 <br />
 <br />
 <img src="https://i.imgur.com/LzJmb1O.png"/>
-
+I used the “boot system flash:(filename)” command to specify the new file as the one to boot with. Before the update, R1’s version was 15.1.
 <br />
 <br />
 <img src="https://i.imgur.com/9rrFMAt.png"/>
-
+After restarting R1, the new version is 15.5.
 <br />
 <br />
 <img src="https://i.imgur.com/auydq8o.png"/>
@@ -412,15 +424,27 @@ OSPF routes are being shared on the DSWs too, and DSW1 can ping 203.0.113.2, R1�
 [Back to top](#small-office-network-part-2---configuration)
   
 <h3>18. Secure Shell (SSH) and Access Control Lists (ACLs)</h3>
-
+SSH lets a device connect to another remote device and issue commands on it. During the SSH configuration, I use an ACL to restrict access to the PC subnet only.
+<br />
+<br />
+“crypto key generate rsa” enables SSH and creates a key to be used for security reasons. I decided to go with a 4096-bit key. I set the SSH version to support version 2 only.
+<br />
+<br />
+The “access-list” command creates the access list to permit only the PC subnet hosts to SSH into R1. All other IP addresses are implicitly and automatically denied.
+<br />
+<br />
+The “line vty 0 15” command lets me configure the SSH settings on all possible console lines. I applied the ACL, restricted connections to SSH only, required login using local credentials, and enabled console messages.
+<br />
+<br />
+Finally, I configured credentials, or secrets, on R1 to authenticate both local and SSH users.
 <br />
 <br />
 <img src="https://i.imgur.com/rikZKnS.png"/>
-
+PC1 can successfully SSH into R1.
 <br />
 <br />
 <img src="https://i.imgur.com/ad9RXST.png"/>
-
+SRV1 is not allowed to SSH into R1, meaning that the ACL was configured correctly.
 <br />
 <br />
 <img src="https://i.imgur.com/RqW6rqq.png"/>
@@ -428,19 +452,25 @@ OSPF routes are being shared on the DSWs too, and DSW1 can ping 203.0.113.2, R1�
 [Back to top](#small-office-network-part-2---configuration)
 
 <h3>19. Network Address Translation (NAT)</h3>
-
+NAT translates internal IP addresses to public, internet-facing IP addresses. 
+<br />
+<br />
+On R1, I set G0/2, which faces the ISP routers, as the outside NAT interface. G0/0 and 1, which face the network, are set as the inside NAT interfaces.
 <br />
 <br />
 <img src="https://i.imgur.com/ykqhHZF.png"/>
-
+Another ACL is created to let R1 know which addresses to translate. All VLAN traffic except the management VLAN should be translated.
 <br />
 <br />
 <img src="https://i.imgur.com/i8lF6dd.png"/>
-
+In this case, I decided to use NAT overload. In other words, multiple internal devices will share the same public IP address. The “ip nat pool” command is used to configure which range of IP addresses will be used for NAT.
+<br />
+<br />
+The “ip nat inside source list (ACL) pool (poolname) overload” command enables NAT with the specified ACL and pool.
 <br />
 <br />
 <img src="https://i.imgur.com/NX6kbip.png"/>
-
+PC1 and SRV1 can now ping “google.com” successfully.
 <br />
 <br />
 <img src="https://i.imgur.com/iXoE7zq.png"/>
