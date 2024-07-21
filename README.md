@@ -73,7 +73,7 @@ EtherChannel combines multiple physical links into a single logical link, provid
 <br />
 <br />
 <img src="https://i.imgur.com/2Wo4GgE.png"/>
-Using “do show etherchannel summary” we can see that Po1 has been successfully created.
+Using “show etherchannel summary,” we can see that Po1 has been successfully created.
 <br />
 <br />
 <img src="https://i.imgur.com/SdEwSmQ.png"/>
@@ -81,11 +81,11 @@ Using “do show etherchannel summary” we can see that Po1 has been successful
 [Back to top](#small-office-network-part-2---configuration)
 
 <h3>3. Trunk ports and Dynamic Trunking Protocol (DTP)</h3>
-Trunk ports allow traffic from multiple VLANs to pass through an interface. This is essential for logically separating traffic seamlessly and securely. Using “do show cdp neighbors” we can see the local switch interfaces connected to its neighbors.
+Trunk ports allow traffic from multiple VLANs to pass through an interface. This is essential for logically separating traffic seamlessly and securely. Using “show cdp neighbors,” we can see the local switch interfaces connected to its neighbors.
 <br />
 <br />
 <img src="https://i.imgur.com/yImRKoN.png"/>
-Interfaces G1/0/4 to G1/0/6 on DSW1 and 2 are connected to ASW1, 2, and 3. I configure the trunk links on these interfaces because the traffic between the endpoints and distribution switches will all flow through here.
+Interfaces G1/0/4 to G1/0/6 on the DSWs are connected to the ASWs. I configure the trunk links on these interfaces because the traffic between the endpoints and distribution switches will all flow through here.
 <br />
 <br />
 <img src="https://i.imgur.com/e2t6XFq.png"/>
@@ -93,7 +93,7 @@ I also disabled Dynamic Trunking Protocol (DTP) because I want these ports to st
 <br />
 <br />
 <img src="https://i.imgur.com/CtOYsPj.png"/>
-I performed the same configurations on ASW1, 2, and 3’s F0/1 and F0/4 interfaces, which are connected to both DSW1 and 2.
+I performed the same configurations on the ASW's F0/1 and F0/4 interfaces, which are connected to both DSWs.
 <br />
 <br />
 <img src="https://i.imgur.com/WcRcWtV.png"/>
@@ -105,11 +105,11 @@ VTP lets us propagate and sync VLAN configurations across multiple switches in t
 <br />
 <br />
 <img src="https://i.imgur.com/BJkJKgk.png"/>
-On the VTP server (DSW1), I changed the domain name to grilledonion and set VTP to version 2.
+On the VTP server (DSW1), I changed the domain name to "grilledonion" and set VTP to version 2.
 <br />
 <br />
 <img src="https://i.imgur.com/IydGQCL.png"/>
-On the VTP clients (ASW1, 2, 3), I set the VTP mode to client, and the configurations on DSW1 were automatically applied. Note that DSW2 is also a server, but it also synced to DSW1’s changes.
+On the VTP clients (the ASWs), I set the VTP mode to client, and the configurations on DSW1 were automatically applied. Note that DSW2 is also a server, but it also synced to DSW1’s changes.
 <br />
 <br />
 <img src="https://i.imgur.com/X0Xv5Uo.png"/>
@@ -140,7 +140,7 @@ On ASW2, I configured F0/2 with similar settings, but with VLAN 10 for PCs and V
 <br />
 <br />
 <img src="https://i.imgur.com/yQsf8Gp.png"/>
-Again, on ASW3 I used similar settings but with VLAN 30 for the server.
+On ASW3, I used similar settings but with VLAN 30 for the server.
 <br />
 <br />
 <img src="https://i.imgur.com/V9FMFQX.png"/>
@@ -152,15 +152,15 @@ Back on ASW1, I explicitly configured F0/3, the interface connected to WLC1, as 
 [Back to top](#small-office-network-part-2---configuration)
 
 <h3>7. Disabling unused ports</h3>
-As a security best practice, I disabled all unused ports on all switches. “do show interfaces status” displays all the unused ports.
+As a security best practice, I disabled all unused ports on all switches. “show interfaces status” displays all the unused ports.
 <br />
 <br />
 <img src="https://i.imgur.com/IFBYVDy.png"/>
-For example, DSW1’s interfaces G1/0/7 through 24 and G1/1/1 through 4 interfaces are unused, so I shut them down.
+For example, DSW1’s interfaces G1/0/7 through 24 and G1/1/1 through 4 are unused, so I shut them down.
 <br />
 <br />
 <img src="https://i.imgur.com/4FjGyUH.png"/>
-In addition, I used the “do write” command after every step in this project to ensure that my changes are saved.
+In addition, I used the “write” command after every step in this project to ensure that my changes are saved.
 <br />
 <br />
 <img src="https://i.imgur.com/lO70pwO.png"/>
@@ -180,7 +180,7 @@ On R1, interface G0/0 and G0/1 face DSW1 and 2 and are assigned their respective
 <br />
 <br />
 <img src="https://i.imgur.com/Srvo2nb.png"/>
-Using the “do show ip interface brief” command, we can see that each interface is up and assigned an IP address. 
+Using the “show ip interface brief,” we can see that each interface is up and assigned an IP address. 
 <br />
 <br />
 Note that Packet Tracer cannot actually connect to the internet, so R1 is not connected to a real ISP. G0/2 has an unassigned IP address, but in a real-world situation, it would have been automatically configured. 
@@ -194,7 +194,7 @@ The DSW configurations follow. G1/0/1 and 2 on each DSW are connected to each ot
 <br />
 <br />
 <img src="https://i.imgur.com/dc0tK37.png"/>
-Using the “do show etherchannel summary” command, Po1 is now listed as a layer 3 port-channel instead of a layer 2 one. I successfully pinged 192.168.0.42, DSW2’s side of the link, confirming that there is connectivity.
+Using “show etherchannel summary,” Po1 is now listed as a layer 3 port-channel instead of a layer 2 one. I successfully pinged 192.168.0.42, DSW2’s side of the link, confirming that there is connectivity.
 <br />
 <br />
 <img src="https://i.imgur.com/vFStxXZ.png"/>
@@ -259,7 +259,7 @@ Per VLAN Spanning Tree, or PVST, must be enabled on each VLAN. Like HSRP, a swit
 <br />
 <br />
 <img src="https://i.imgur.com/iai2Vtt.png"/>
-DSW1 will be the root bridge for VLANs 99 and 10, and the secondary bridge for VLANs 20, 30, and 40. Using the “do show spanning-tree vlan (VLAN-ID)” command, we can see whether or not this bridge is the root in that VLAN.
+DSW1 will be the root bridge for VLANs 99 and 10, and the secondary bridge for VLANs 20, 30, and 40. Using “show spanning-tree vlan (VLAN-ID),” we can see whether or not this bridge is the root in that VLAN.
 <br />
 <br />
 <img src="https://i.imgur.com/EVCN5q0.png"/>
@@ -274,7 +274,7 @@ In addition, BPDU Guard is used in conjunction with PortFast to prevent switches
 <br />
 <br />
 <img src="https://i.imgur.com/zTvLOE2.png"/>
-Since F0/3 on ASW1 is connected to the WLC, it must be a trunk port. While you can normally only enable PortFast and BPDU Guard on access ports, you can use the “spanning-tree portfast trunk” command to bypass this.
+Since F0/3 on ASW1 is connected to the WLC, it must be a trunk port. While you can normally only enable PortFast and BPDU Guard on access ports, you can use “spanning-tree portfast trunk” to bypass this.
 <br />
 <br />
 <img src="https://i.imgur.com/1MifSRr.png"/>
@@ -300,11 +300,11 @@ Similar configurations are needed for each VLAN as well. I didn’t set VLAN 99 
 <br />
 <br />
 <img src="https://i.imgur.com/yE3Kd5f.png"/>
-Using “do show ip ospf neighbor” we can see that R1 and both DSWs are all neighbors with each other.
+Using “show ip ospf neighbor,” we can see that R1 and both DSWs are all neighbors with each other.
 <br />
 <br />
 <img src="https://i.imgur.com/YUG6NIL.png"/>
-Using “do show ip route” we can see that OSPF routes are being shared on R1.
+Using “show ip route,” we can see that OSPF routes are being shared on R1.
 <br />
 <br />
 <img src="https://i.imgur.com/x3XGUzc.png"/>
@@ -323,15 +323,15 @@ DHCP makes it possible to dynamically assign, or lease, IP addresses to devices 
 On R1, I started by excluding the first 10 usable addresses in each subnet. Theoretically, I saved these addresses in case the network gets expanded and some devices need IP addresses that stay the same. 
 <br />
 <br />
-Each DHCP subnet address matches the HSRP group subnets addresses. The default gateway of each subnet is the first usable address, the domain name is grilledonion.com, and the DNS server is SRV1’s IP address.
+Each DHCP subnet address matches the HSRP group subnets addresses. The default gateway of each subnet is the first usable address, the domain name is "grilledonion.com", and the DNS server is SRV1’s IP address.
 <br />
 <br />
 <img src="https://i.imgur.com/J6PCYM6.png"/>
-On both DSWs, I used the “ip helper-address” command to define R1 as the DHCP server and the DSWs as the DHCP relay agent.
+On both DSWs, I used “ip helper-address” to define R1 as the DHCP server and the DSWs as the DHCP relay agent.
 <br />
 <br />
 <img src="https://i.imgur.com/LT2MAMX.png"/>
-On PC1, I used the “ipconfig /renew” command to get a new dynamically assigned IP address. I pinged R1’s loopback address and internet-facing interface, which were successful.
+On PC1, I used “ipconfig /renew” to get a new dynamically assigned IP address. I pinged R1’s loopback address and internet-facing interface, which were successful.
 <br />
 <br />
 <img src="https://i.imgur.com/Ggfcat4.png"/>
@@ -362,7 +362,7 @@ The pings show that DNS work on R1 as well.
 [Back to top](#small-office-network-part-2---configuration)
   
 <h3>14. Network Time Protocol (NTP)</h3>
-NTP lets network devices sync their clock together. On R1, I use the “ntp master” command to set it as an NTP server that the rest of the network will sync to. The “ntp server” command is used to sync R1 to another NTP server, which is a <a href="https://tf.nist.gov/tf-cgi/servers.cgi">NIST Internet Time server</a>.
+NTP lets network devices sync their clock together. On R1, I use “ntp master” to set it as an NTP server that the rest of the network will sync to. The “ntp server” command is used to sync R1 to another NTP server, which is a <a href="https://tf.nist.gov/tf-cgi/servers.cgi">NIST Internet Time server</a>.
 <br />
 <br />
 An authentication key, “onion,” is created and trusted so that R1 and the DSWs can authenticate with each other for security.
@@ -400,7 +400,7 @@ FTP enables file transfer between devices. SRV1 contains an update file for R1 t
 <br />
 <br />
 <img src="https://i.imgur.com/5oLcn5e.png"/>
-On R1, I set the FTP username and password configured on SRV1. The “do copy ftp flash” command lets you specify the filename to transfer.
+On R1, I set the FTP username and password configured on SRV1. The “copy ftp flash” command lets you specify the filename to transfer.
 <br />
 <br />
 <img src="https://i.imgur.com/YzXg2xG.png"/>
@@ -412,7 +412,7 @@ The new file, ending in “115-3.M4a.bin,” can be seen on R1’s flash now. I 
 <br />
 <br />
 <img src="https://i.imgur.com/LzJmb1O.png"/>
-I used the “boot system flash:(filename)” command to specify the new file as the one to boot with. Before the update, R1’s version was 15.1.
+I used “boot system flash:(filename)” to specify the new file as the one to boot with. Before the update, R1’s version was 15.1.
 <br />
 <br />
 <img src="https://i.imgur.com/9rrFMAt.png"/>
@@ -424,10 +424,10 @@ After restarting R1, the new version is 15.5.
 [Back to top](#small-office-network-part-2---configuration)
   
 <h3>18. Secure Shell (SSH) and Access Control Lists (ACLs)</h3>
-SSH lets a device connect to another remote device and issue commands on it. During the SSH configuration, I use an ACL to restrict access to the PC subnet only.
+SSH lets a device connect to another remote device and issue commands on it. During the SSH configuration, I used an ACL to restrict access to the PC subnet only.
 <br />
 <br />
-“crypto key generate rsa” enables SSH and creates a key to be used for security reasons. I decided to go with a 4096-bit key. I set the SSH version to support version 2 only.
+“crypto key generate rsa” enables SSH and creates a key to be used for security purposes. I decided to go with a 4096-bit key. I set the SSH version to support version 2 only.
 <br />
 <br />
 The “access-list” command creates the access list to permit only the PC subnet hosts to SSH into R1. All other IP addresses are implicitly and automatically denied.
@@ -485,7 +485,7 @@ On R1 and the DSWs, the “no cdp run” command disables CDP and the “lldp ru
 <br />
 <br />
 <img src="https://i.imgur.com/ZiQUmCL.png"/>
-The ASWs also require that the access ports do not transmit LLDP information for security reasons.
+The ASWs also require that the access ports do not transmit LLDP information for security purposes.
 <br />
 <br />
 <img src="https://i.imgur.com/zAVM3p3.png"/>
@@ -517,7 +517,7 @@ DHCP snooping prevents unauthorized DHCP servers from leasing IP addresses to DH
 DHCP snooping only needs to be enabled on switches (in this case, the ASWs) with end points connected to it. Trunk ports are usually trusted ports while access ports should be untrusted.
 <br />
 <br />
-I enabled DHCP snooping globally and on all VLANs. “no ip dhcp snooping information option,” known as option 82, is a setting that sometimes causes issues in Packet Tracer, so I disabled it.
+I enabled DHCP snooping globally and on all VLANs. “ip dhcp snooping information option,” known as option 82, is a setting that sometimes causes issues in Packet Tracer, so I disabled it.
 <br />
 <br />
 Once DHCP snooping is enabled, all ports are untrusted by default. Since F0/1 and 4 are trunk ports and connect to other switches, I trusted them. Finally, I limited the access ports to 15 packets per second. F0/3, which connects to the WLC, is an exception and is set to 100 packets per second.
@@ -565,7 +565,7 @@ Finally, I added a default IPv6 route to R1 that specifies the ISP as the next h
 [Back to top](#small-office-network-part-2---configuration)
   
 <h3>25. Wireless Networking</h3>
-Thankfully, we’re finally getting around to the wireless network portion of the project. I set WLC1’s IP address to 192.168.0.7, a usable address on the management VLAN. The default gateway is set to the HSRP group’s virtual IP address, and the DNS server set to SRV1’s IP address.
+I set WLC1’s IP address to 192.168.0.7, a usable address on the management VLAN. The default gateway is set to the HSRP group’s virtual IP address, and the DNS server set to SRV1’s IP address.
 <br />
 <br />
 <img src="https://i.imgur.com/j8v5LpR.png"/>
