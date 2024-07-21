@@ -180,31 +180,37 @@ On R1, interface G0/0 and G0/1 face DSW1 and 2 and are assigned their respective
 <br />
 <br />
 <img src="https://i.imgur.com/Srvo2nb.png"/>
-
+Using the “do show ip interface brief” command, we can see that each interface is up and assigned an IP address. 
+<br />
+<br />
+Note that Packet Tracer cannot actually connect to the internet, so R1 is not connected to a real ISP. G0/2 has an unassigned IP address, but in a real-world situation, it would have been automatically configured. 
+<br />
+<br />
+Later on, I manually set R1’s IP address to match the 203.0.113.0 network of the ISP routers that I set up to act as the internet.
 <br />
 <br />
 <img src="https://i.imgur.com/qUwopgW.png"/>
-
+The DSW configurations follow. G1/0/1 and 2 on each DSW are connected to each other, so I bundle them together in Port-channel 1 again. With the “no switchport” command, Po1 now becomes a layer 3 link and I can assign it an IP address.
 <br />
 <br />
 <img src="https://i.imgur.com/dc0tK37.png"/>
-
+Using the “do show etherchannel summary” command, Po1 is now listed as a layer 3 port-channel instead of a layer 2 one. I successfully pinged 192.168.0.42, DSW2’s side of the link, confirming that there is connectivity.
 <br />
 <br />
 <img src="https://i.imgur.com/vFStxXZ.png"/>
-
+I made G1/0/3 a layer 3 connection using “no switchport” again and assigned it the IP address for R1’s point-to-point connection. Finally, I added the loopback interface.
 <br />
 <br />
 <img src="https://i.imgur.com/TfH1gmC.png"/>
-
+The ASW configurations follow. Each ASW has their default gateway set to 192.168.0.1 (located in the management VLAN). The management VLAN 99 is enabled on the switch so that we can assign an IP address to it.
 <br />
 <br />
 <img src="https://i.imgur.com/52N2PaC.png"/>
-
+On SRV1, the default gateway is set to 192.168.3.1 (located in the server VLAN).
 <br />
 <br />
 <img src="https://i.imgur.com/IH1zzuH.png"/>
-
+SRV1’s IP address is manually set to 192.168.3.4, and other devices will use this address as their DNS server.
 <br />
 <br />
 <img src="https://i.imgur.com/FndErd5.png"/>
@@ -212,27 +218,33 @@ On R1, interface G0/0 and G0/1 face DSW1 and 2 and are assigned their respective
 [Back to top](#small-office-network-part-2---configuration)
 
 <h3>9. Hot Standby Router Protocol (HSRP)</h3>
-
+HSRP allows the use of a virtual IP address that either of the DSW can use. This is useful because each VLAN can have a different IP address that other devices can use as their default gateway. It also provides redundancy since the backup router can take over the active router if it goes down. Each HSRP group, subnet, and IP addresses are below.
 <br />
 <br />
 <img src="https://i.imgur.com/eidYwk1.png"/>
-
+The configurations on each DSW are the same, except one of them will be an active router and the other will be a standby router. The standby router uses the default priority of 100.
+<br />
+<br />
+First, the DSW will be assigned its own IP address on the subnet. After, the virtual IP of the group that the active router uses (192.168.0.1 in this case) is assigned. A higher HSRP priority (I use 200 in this case) makes that specific switch the active router. Preemption ensures that this router will always be the active router whenever possible.
+<br />
+<br />
+Group 1
 <br />
 <br />
 <img src="https://i.imgur.com/QS2zRJP.png"/>
-
+Group 2
 <br />
 <br />
 <img src="https://i.imgur.com/ueWKZ0l.png"/>
-
+Group 3
 <br />
 <br />
 <img src="https://i.imgur.com/4VMVuMM.png"/>
-
+Group 4
 <br />
 <br />
 <img src="https://i.imgur.com/vhen528.png"/>
-
+Group 5
 <br />
 <br />
 <img src="https://i.imgur.com/KyBFOMi.png"/>
@@ -240,23 +252,29 @@ On R1, interface G0/0 and G0/1 face DSW1 and 2 and are assigned their respective
 [Back to top](#small-office-network-part-2---configuration)
   
 <h3>10. Spanning Tree Protocol (STP)</h3>
-
+STP is a layer 2 protocol that prevents loops and broadcast storms while providing network redundancy. In this case, I use the Cisco-proprietary Rapid PVST+ protocol.
+<br />
+<br />
+Per VLAN Spanning Tree, or PVST, must be enabled on each VLAN. Like HSRP, a switch is elected as the root bridge depending on the switch’s priority. A switch with priority 0 has the highest priority, and a priority of 4096 (one increment higher than 0) makes that switch a secondary bridge in this case.
 <br />
 <br />
 <img src="https://i.imgur.com/iai2Vtt.png"/>
-
+DSW1 will be the root bridge for VLANs 99 and 10, and the secondary bridge for VLANs 20, 30, and 40. Using the “do show spanning-tree vlan (VLAN-ID)” command, we can see whether or not this bridge is the root in that VLAN.
 <br />
 <br />
 <img src="https://i.imgur.com/EVCN5q0.png"/>
-
+DSW2 will be the root bridge for VLANs 20, 30, and 40, and the secondary bridge for VLANs 99 and 10.
 <br />
 <br />
 <img src="https://i.imgur.com/DEqAU2P.png"/>
-
+PortFast enables computers or servers to instantly be able to use that specific port. Normally, a port must go through several STP states before it can be used. It is only enabled on access ports that connect to end devices. 
+<br />
+<br />
+In addition, BPDU Guard is used in conjunction with PortFast to prevent switches or rogue devices from instantly being able to connect to the STP topology and cause network issues.
 <br />
 <br />
 <img src="https://i.imgur.com/zTvLOE2.png"/>
-
+Since F0/3 on ASW1 is connected to the WLC, it must be a trunk port. While you can normally only enable PortFast and BPDU Guard on access ports, you can use the “spanning-tree portfast trunk” command to bypass this.
 <br />
 <br />
 <img src="https://i.imgur.com/1MifSRr.png"/>
@@ -264,27 +282,33 @@ On R1, interface G0/0 and G0/1 face DSW1 and 2 and are assigned their respective
 [Back to top](#small-office-network-part-2---configuration)
 
 <h3>11. Open Shortest Path First (OSPF) and IPv4 Routes</h3>
-
+OSPF is a dynamic routing protocol that shares routing information. Instead of statically configuring IP routes to every section of the network, routers and multilayer switches can dynamically share their routes with the rest of the autonomous system.
+<br />
+<br />
+On R1, I start OSPF with process ID 1 and set R1’s router ID to the IP address of Loopback0. Since Loopback0 is not routable, it does not need to advertise itself. “passive-interface” disables OSPF advertisements on the specified interface.
+<br />
+<br />
+I set area 0, the default (backbone) area, on each interface that OSPF is activated. Furthermore, G0/0 and G0/1 are configured as point-to-point since a designated router (DR) and backup designated router (BDR) are not needed for /30 links.
 <br />
 <br />
 <img src="https://i.imgur.com/rneKnVA.png"/>
-
+On both DSWs, the router ID is set to their respective Loopback0 IP addresses and Loopback0 is set to passive. On each interface, the “network” command is used to advertise the networks that fall within the specified range. Finally, G1/0/3 is set to point-to-point.
 <br />
 <br />
 <img src="https://i.imgur.com/S188MVW.png"/>
-
+Similar configurations are needed for each VLAN as well. I didn’t set VLAN 99 as passive since the management VLAN routes are what need to be shared across the network.
 <br />
 <br />
 <img src="https://i.imgur.com/yE3Kd5f.png"/>
-
+Using “do show ip ospf neighbor” we can see that R1 and both DSWs are all neighbors with each other.
 <br />
 <br />
 <img src="https://i.imgur.com/YUG6NIL.png"/>
-
+Using “do show ip route” we can see that OSPF routes are being shared on R1.
 <br />
 <br />
 <img src="https://i.imgur.com/x3XGUzc.png"/>
-
+OSPF routes are being shared on the DSWs too, and DSW1 can ping 203.0.113.2, R1’s internet-facing interface, even though I didn’t configure a route myself.
 <br />
 <br />
 <img src="https://i.imgur.com/Nrfkha0.png"/>
