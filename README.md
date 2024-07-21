@@ -478,11 +478,14 @@ PC1 and SRV1 can now ping “google.com” successfully.
 [Back to top](#small-office-network-part-2---configuration)
   
 <h3>20. Link Layer Discovery Protocol (LLDP)</h3>
-
+LLDP allows network devices to share information about themselves with other devices. I decided to configure LLDP, a vendor-neutral protocol, instead of CDP, Cisco’s proprietary protocol.
+<br />
+<br />
+On R1 and the DSWs, the “no cdp run” command disables CDP and the “lldp run” command enables LLDP.
 <br />
 <br />
 <img src="https://i.imgur.com/ZiQUmCL.png"/>
-
+The ASWs also require that the access ports do not transmit LLDP information for security reasons.
 <br />
 <br />
 <img src="https://i.imgur.com/zAVM3p3.png"/>
@@ -490,11 +493,17 @@ PC1 and SRV1 can now ping “google.com” successfully.
 [Back to top](#small-office-network-part-2---configuration)
   
 <h3>21. Port Security</h3>
-
+Port security restricts access to which devices can physically connect to the network. It only needs to be configured on the ASWs since only they have ports that end devices connect to. Port security is enabled per interface, and F0/2 is the only interface connected to an end device. 
+<br />
+<br />
+The restrict violation mode permits traffic from known MAC addresses while dropping traffic from unknown MAC addresses and sending a warning message if a traffic violation occurs.
+<br />
+<br />
+Sticky MAC addresses lets a switch learn and save a MAC address on a specific port.
 <br />
 <br />
 <img src="https://i.imgur.com/cUPbfRr.png"/>
-
+ASW2 has an IP phone and PC connected to it, so the maximum amount of MAC addresses it is allowed to learn must be set to 2.
 <br />
 <br />
 <img src="https://i.imgur.com/iKGMBXk.png"/>
@@ -502,7 +511,16 @@ PC1 and SRV1 can now ping “google.com” successfully.
 [Back to top](#small-office-network-part-2---configuration)
 
 <h3>22. DHCP Snooping</h3>
-
+DHCP snooping prevents unauthorized DHCP servers from leasing IP addresses to DHCP clients. It can also limit how quickly DHCP messages can be received in one second.
+<br />
+<br />
+DHCP snooping only needs to be enabled on switches (in this case, the ASWs) with end points connected to it. Trunk ports are usually trusted ports while access ports should be untrusted.
+<br />
+<br />
+I enabled DHCP snooping globally and on all VLANs. “no ip dhcp snooping information option,” known as option 82, is a setting that sometimes causes issues in Packet Tracer, so I disabled it.
+<br />
+<br />
+Once DHCP snooping is enabled, all ports are untrusted by default. Since F0/1 and 4 are trunk ports and connect to other switches, I trusted them. Finally, I limited the access ports to 15 packets per second. F0/3, which connects to the WLC, is an exception and is set to 100 packets per second.
 <br />
 <br />
 <img src="https://i.imgur.com/WCi5xwI.png"/>
@@ -510,7 +528,13 @@ PC1 and SRV1 can now ping “google.com” successfully.
 [Back to top](#small-office-network-part-2---configuration)
   
 <h3>23. Dynamic ARP Inspection (DAI)</h3>
-
+DAI protects switches against ARP spoofing by inspecting ARP packets and validating them using the DHCP snooping database.
+<br />
+<br />
+I enabled DAI on all VLANs and set it to validate ARP packets based on their source/destination MAC addresses and IP addresses.
+<br />
+<br />
+Again, I set F0/1 and 4 to be trusted ports since they connect to the DSWs and are trunk ports.
 <br />
 <br />
 <img src="https://i.imgur.com/igpzGP3.png"/>
@@ -518,19 +542,22 @@ PC1 and SRV1 can now ping “google.com” successfully.
 [Back to top](#small-office-network-part-2---configuration)
 
 <h3>24. IPv6</h3>
-
+Configuring IPv6 addresses is similar to configuring IPv4 addresses. 
+<br />
+<br />
+To start, I enabled IPv6 on R1 with “ipv6 unicast-routing” and assigned G0/2’s IP address. I decided to use eui-64 to automatically configure an address for G0/0 and 1.
 <br />
 <br />
 <img src="https://i.imgur.com/cF0m5wO.png"/>
-
+I followed the same steps on the DSWs.
 <br />
 <br />
 <img src="https://i.imgur.com/Jxh4ZVn.png"/>
-
+Furthermore, I enabled IPv6 on Portchannel1 without assigning an IP address. In this case, it was fine to keep the automatically created loopback address for this interface.
 <br />
 <br />
 <img src="https://i.imgur.com/37whEDs.png"/>
-
+Finally, I added a default IPv6 route to R1 that specifies the ISP as the next hop.
 <br />
 <br />
 <img src="https://i.imgur.com/MedsWNh.png"/>
@@ -538,23 +565,23 @@ PC1 and SRV1 can now ping “google.com” successfully.
 [Back to top](#small-office-network-part-2---configuration)
   
 <h3>25. Wireless Networking</h3>
-
+Thankfully, we’re finally getting around to the wireless network portion of the project. I set WLC1’s IP address to 192.168.0.7, a usable address on the management VLAN. The default gateway is set to the HSRP group’s virtual IP address, and the DNS server set to SRV1’s IP address.
 <br />
 <br />
 <img src="https://i.imgur.com/j8v5LpR.png"/>
-
+In the Wireless LANs tab, I created the Wi-Fi WLAN that uses VLAN 40, WPA2-PSK with the passphrase “grilledonion,” and AES encryption.
 <br />
 <br />
 <img src="https://i.imgur.com/1C3tsjo.png"/>
-
+In the AP Groups tab, I added LWAP1 as an access point in the Wi-Fi WLAN.
 <br />
 <br />
 <img src="https://i.imgur.com/L0ZXkCO.png"/>
-
+On Laptop1, I set it’s Wireless0 interface to join the network with the SSID Wi-Fi and passphrase that was just configured. Please note that Packet Tracer does not support IP address assignment through DHCP on wireless networks.
 <br />
 <br />
 <img src="https://i.imgur.com/n2LoQX6.png"/>
-
+Regardless, we can see in the network topology that Laptop1 has now associated with LWAP1.
 <br />
 <br />
 <img src="https://i.imgur.com/RG5ECxs.png"/>
@@ -562,15 +589,24 @@ PC1 and SRV1 can now ping “google.com” successfully.
 [Back to top](#small-office-network-part-2---configuration)
 
 <h3>26. Security</h3>
-
+To finish off the project, I configured credentials on R1 and all the switches. Normally this step should be first, but for the purposes of this lab, I saved it for last so I didn’t have to constantly reauthenticate while making all the configurations.
+<br />
+<br />
+On R1, I set the password “grilledonion” with type 5 encryption. The same was done for username and password “grilledonion.”
+<br />
+<br />
+In the running-config we can see the secrets stored in encrypted form.
+<br />
+<br />
+Afterwards, I required that login be used with local credentials, the session to be timed out after an hour of inactivity, and for console messages to not interrupt command input.
 <br />
 <br />
 <img src="https://i.imgur.com/XG4SYZe.png"/>
-
+On the DSWs, I followed the same steps but with type 9 encryption.
 <br />
 <br />
 <img src="https://i.imgur.com/jqysUdz.png"/>
-
+Finally, I followed the same steps on the ASWs but with default encryption.
 <br />
 <br />
 <img src="https://i.imgur.com/U8xqFCv.png"/>
@@ -578,6 +614,11 @@ PC1 and SRV1 can now ping “google.com” successfully.
 [Back to top](#small-office-network-part-2---configuration)
   
 <h3>Conclusion</h3>
-
+With that, the configuration of the network is complete. I know this project is lengthy, but I wanted to document most of my steps and provide proof of my understanding of network concepts. 
+<br />
+<br />
+If you made it this far, thank you for reading. Please make sure to check out my other projects that are listed on my <a href="https://github.com/rolandsalvador">homepage</a>!
+<br />
+<br />
 
 [Back to top](#small-office-network-part-2---configuration)
