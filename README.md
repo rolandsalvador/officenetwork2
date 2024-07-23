@@ -342,11 +342,11 @@ On PC1, I used “ipconfig /renew” to get a new dynamically assigned IP addres
 DNS translates IP addresses into more human-friendly readable names. For example, we can type “google.com” as the target of a ping instead of “8.8.8.8.”
 <br />
 <br />
-On the DNS server, SRV1, I created an A record (for IPv4) that records the above translation. Furthermore, I created a CNAME called “www.google[.]com” that maps to “google.com.”
+On the DNS server, SRV1, I created an A record (for IPv4) that records the above translation. Furthermore, I created a CNAME called “www.google.com” that maps to “google.com.”
 <br />
 <br />
 <img src="https://i.imgur.com/DzqLBSN.png"/>
-Back on PC1, I pinged using the target “google.com” and it correctly translates to 8.8.8.8. This also happens when I use “www.google[.]com” as well. The requests are timing out since I haven’t configured NAT yet.
+Back on PC1, I pinged using the target “google.com” and it correctly translates to 8.8.8.8. This also happens when I use “www.google.com” as well. The requests are timing out since I haven’t configured NAT yet.
 <br />
 <br />
 <img src="https://i.imgur.com/VqOlMPh.png"/>
